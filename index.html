@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b0a">
+<title>EZPRO ⚡ | دنیای تکنولوژی</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg: #080b0a;
+    --card: #111713;
+    --green: #b4ff39;
+    --text: #f4fff6;
+    --muted: #84918a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 15% 10%, #b4ff3915, transparent 45%),
+        radial-gradient(ellipse at 90% 50%, #00ffc310, transparent 40%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    width: min(100% - 32px, 950px);
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 23px 0;
+    border-bottom: 1px solid #ffffff0c;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    background: var(--green);
+    color: #080b0a;
+    border-radius: 14px;
+    box-shadow: 0 0 30px #b4ff3930;
+    font-size: 25px;
+}
+
+.badge {
+    font-size: 11px;
+    color: var(--green);
+    background: #b4ff3910;
+    border: 1px solid #b4ff3930;
+    padding: 7px 12px;
+    border-radius: 30px;
+}
+
+.hero {
+    padding: 72px 0 45px;
+    text-align: center;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--green);
+    border: 1px solid #b4ff3930;
+    background: #b4ff3909;
+    border-radius: 30px;
+    padding: 8px 14px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--green);
+    animation: pulse 1.5s infinite;
+}
+
+h1 {
+    font-size: clamp(37px, 9vw, 76px);
+    line-height: 1.35;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+h1 span {
+    color: var(--green);
+    text-shadow: 0 0 40px #b4ff3925;
+}
+
+.description {
+    max-width: 510px;
+    margin: 18px auto 28px;
+    color: var(--muted);
+    line-height: 2.2;
+    font-size: 14px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+button, .btn {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 13px;
+    padding: 14px 23px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: .25s;
+}
+
+.primary {
+    background: var(--green);
+    color: #090d07;
+    box-shadow: 0 7px 28px #b4ff391c;
+}
+
+.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px #b4ff3940;
+}
+
+.secondary {
+    color: white;
+    background: #ffffff07;
+    border: 1px solid #ffffff18;
+}
+
+.secondary:hover {
+    border-color: var(--green);
+}
+
+.clock-card {
+    margin: 15px auto 40px;
+    width: min(100%, 420px);
+    background: linear-gradient(135deg, #ffffff09, #ffffff02);
+    border: 1px solid #ffffff12;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(15px);
+}
+
+.clock-label {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.clock {
+    font-size: 31px;
+    font-weight: 900;
+    color: var(--green);
+    direction: ltr;
+    margin: 8px 0;
+    font-variant-numeric: tabular-nums;
+}
+
+.date {
+    color: #718078;
+    font-size: 11px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 24px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+    margin-bottom: 50px;
+}
+
+.card {
+    background: linear-gradient(145deg, #141b16, #0d110e);
+    border: 1px solid #ffffff0e;
+    border-radius: 19px;
+    padding: 21px 16px;
+    transition: .3s;
+    min-width: 0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #b4ff3945;
+    box-shadow: 0 15px 35px #0005;
+}
+
+.card-icon {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    background: #b4ff3910;
+    border: 1px solid #b4ff3918;
+    border-radius: 14px;
+    font-size: 22px;
+    margin-bottom: 17px;
+}
+
+.card h3 {
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 2;
+}
+
+.panel {
+    background: linear-gradient(115deg, #b4ff3910, #ffffff03);
+    border: 1px solid #b4ff3923;
+    border-radius: 23px;
+    padding: 27px 23px;
+    margin-bottom: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.panel h2 {
+    font-size: 19px;
+    margin-bottom: 9px;
+}
+
+.panel p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 2;
+}
+
+.panel-icon {
+    font-size: 44px;
+    filter: drop-shadow(0 0 18px #b4ff3930);
+}
+
+footer {
+    padding: 24px 0 35px;
+    border-top: 1px solid #ffffff0c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+footer span {
+    color: var(--green);
+}
+
+.toast {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translate(-50%, 100px);
+    opacity: 0;
+    background: #b4ff39;
+    color: #080b0a;
+    padding: 13px 22px;
+    border-radius: 13px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: .35s;
+    z-index: 100;
+    text-align: center;
+    width: max-content;
+    max-width: calc(100% - 30px);
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+@keyframes pulse {
+    50% { opacity: .4; box-shadow: 0 0 3px var(--green); }
+}
+
+@media(max-width:600px) {
+    .hero {
+        padding-top: 52px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .card {
+        padding: 17px 13px;
+    }
+
+    .panel {
+        align-items: flex-start;
+        padding: 22px 17px;
+    }
+
+    .panel-icon {
+        font-size: 32px;
+    }
+
+    .panel h2 {
+        font-size: 16px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">⚡</div>
+            EZPRO
+        </div>
+        <div class="badge">✦ نسخه ویژه</div>
+    </nav>
+
+    <header class="hero">
+        <div class="tag">
+            <span class="dot"></span>
+            به دنیای جدید خوش آمدی
+        </div>
+
+        <h1>
+            فراتر از<br>
+            <span>محدودیت‌ها</span>
+        </h1>
+
+        <p class="description">
+            قدرت تکنولوژی را متفاوت تجربه کن.
+            سریع، هوشمند و حرفه‌ای؛
+            همه‌چیز برای شروع یک تجربه جدید آماده است.
+        </p>
+
+        <div class="buttons">
+            <button class="primary" onclick="showToast('🚀 به زودی امکانات جدید!')">
+                🚀 شروع کن
+            </button>
+
+            <button class="secondary" onclick="scrollToSection()">
+                بیشتر بدان ←
+            </button>
+        </div>
+    </header>
+
+    <div class="clock-card">
+        <div class="clock-label">⏰ ساعت فعلی دستگاه شما</div>
+        <div class="clock" id="clock">00:00:00</div>
+        <div class="date" id="date">در حال دریافت تاریخ...</div>
+    </div>
+
+    <section id="features">
+        <h2 class="section-title">امکانات ویژه ✦</h2>
+        <p class="section-subtitle">یک تجربه متفاوت، در یک محیط حرفه‌ای</p>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>سرعت بالا</h3>
+                <p>طراحی سبک و سریع برای تجربه روان در موبایل.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>امنیت بیشتر</h3>
+                <p>ساختار ساده برای توسعه امکانات امنیتی آینده.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>طراحی مدرن</h3>
+                <p>ترکیب رنگ نئونی، شیشه‌ای و انیمیشن‌های جذاب.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h3>کاملاً ریسپانسیو</h3>
+                <p>سازگار با گوشی، تبلت و صفحه‌نمایش کامپیوتر.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>قابل توسعه</h3>
+                <p>آماده برای اضافه کردن API و امکانات واقعی.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">✨</div>
+                <h3>تجربه متفاوت</h3>
+                <p>رابط کاربری جذاب با جزئیات مدرن و تمیز.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="panel">
+        <div>
+            <h2>آماده‌ای شروع کنی؟ 🔥</h2>
+            <p>این فقط شروع ماجراست. ایده‌ات را به یک پروژه واقعی تبدیل کن.</p>
+            <br>
+            <button class="primary" onclick="showToast('💚 ممنون که همراه EZPRO هستی!')">
+                بزن بریم ←
+            </button>
+        </div>
+        <div class="panel-icon">⚡</div>
+    </section>
+
+    <footer>
+        <div>ساخته شده با <span>♥</span> و تکنولوژی</div>
+        <div>© 2026 EZPRO · تمام حقوق محفوظ است</div>
+    </footer>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function updateClock() {
+    const now = new Date();
+
+    document.getElementById('clock').textContent =
+        now.toLocaleTimeString('fa-IR', {
+            hour12: false,
+            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+        });
+
+    document.getElementById('date').textContent =
+        now.toLocaleDateString('fa-IR', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+
+    toast.textContent = message;
+    toast.classList.add('show');
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2500);
+}
+
+function scrollToSection() {
+    document.getElementById('features').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+</script>
+
+</body>
+          </html>
